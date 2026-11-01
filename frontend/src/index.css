@@ -1,0 +1,45 @@
+:root {
+  --bp-bg: #0c0d10;
+  --bp-surface: #121318;
+  --bp-surface-2: #17181f;
+  --bp-border: #2a2d38;
+  --bp-text: #e8e9ec;
+  --bp-muted: #a7adbb;
+  --bp-accent: #e8a13c;
+  --bp-red: #e05d5d;
+  --bp-green: #4cc38a;
+  --bp-blue: #5aa9e6;
+  --bp-radius: 8px;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: var(--bp-bg);
+  color: var(--bp-text);
+}
+
+::selection {
+  background: rgba(232, 161, 60, 0.35);
+}
+
+.bp-scroll::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.bp-scroll::-webkit-scrollbar-thumb {
+  background: #2a2d38;
+  border-radius: 6px;
+}
+.bp-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

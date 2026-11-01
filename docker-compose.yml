@@ -1,0 +1,24 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      MODEL_PROVIDER: ${MODEL_PROVIDER:-mock}
+      SEED_ON_STARTUP: "true"
+      CORS_ORIGINS: http://localhost:8080
+      META_API_KEY: ${META_API_KEY:-}
+      META_MODEL: ${META_MODEL:-}
+      DATABASE_URL: sqlite:////app/data/breachpoint.db
+    volumes:
+      - bp-data:/app/data
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+volumes:
+  bp-data:
